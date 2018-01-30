@@ -35,18 +35,18 @@
         private void InitializeComponent()
         {
             this.tab1 = this.Factory.CreateRibbonTab();
-            this.group1 = this.Factory.CreateRibbonGroup();
             this.group2 = this.Factory.CreateRibbonGroup();
             this.buttonFolderToWatch = this.Factory.CreateRibbonButton();
             this.buttonFolderForAttachments = this.Factory.CreateRibbonButton();
+            this.group1 = this.Factory.CreateRibbonGroup();
             this.label1 = this.Factory.CreateRibbonLabel();
+            this.label3 = this.Factory.CreateRibbonLabel();
             this.group3 = this.Factory.CreateRibbonGroup();
             this.label2 = this.Factory.CreateRibbonLabel();
-            this.label3 = this.Factory.CreateRibbonLabel();
             this.label4 = this.Factory.CreateRibbonLabel();
             this.tab1.SuspendLayout();
-            this.group1.SuspendLayout();
             this.group2.SuspendLayout();
+            this.group1.SuspendLayout();
             this.group3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,13 +58,6 @@
             this.tab1.Groups.Add(this.group3);
             this.tab1.Label = "AE";
             this.tab1.Name = "tab1";
-            // 
-            // group1
-            // 
-            this.group1.Items.Add(this.label1);
-            this.group1.Items.Add(this.label3);
-            this.group1.Label = "Desc";
-            this.group1.Name = "group1";
             // 
             // group2
             // 
@@ -85,10 +78,22 @@
             this.buttonFolderForAttachments.Name = "buttonFolderForAttachments";
             this.buttonFolderForAttachments.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonFolderForAttachments_Click);
             // 
+            // group1
+            // 
+            this.group1.Items.Add(this.label1);
+            this.group1.Items.Add(this.label3);
+            this.group1.Label = "Desc";
+            this.group1.Name = "group1";
+            // 
             // label1
             // 
             this.label1.Label = "Watching the following folder:";
             this.label1.Name = "label1";
+            // 
+            // label3
+            // 
+            this.label3.Label = "Selected folder for extraction:";
+            this.label3.Name = "label3";
             // 
             // group3
             // 
@@ -101,11 +106,6 @@
             // 
             this.label2.Label = "Inbox";
             this.label2.Name = "label2";
-            // 
-            // label3
-            // 
-            this.label3.Label = "Selected folder for extraction:";
-            this.label3.Name = "label3";
             // 
             // label4
             // 
@@ -120,10 +120,10 @@
             this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.Ribbon1_Load);
             this.tab1.ResumeLayout(false);
             this.tab1.PerformLayout();
-            this.group1.ResumeLayout(false);
-            this.group1.PerformLayout();
             this.group2.ResumeLayout(false);
             this.group2.PerformLayout();
+            this.group1.ResumeLayout(false);
+            this.group1.PerformLayout();
             this.group3.ResumeLayout(false);
             this.group3.PerformLayout();
             this.ResumeLayout(false);

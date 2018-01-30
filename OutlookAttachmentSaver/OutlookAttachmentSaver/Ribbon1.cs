@@ -16,14 +16,24 @@ namespace OutlookAttachmentSaver
 
         private void buttonFolderToWatch_Click(object sender, RibbonControlEventArgs e)
         {
-            MessageBox.Show("Sorry, this function  is not yet working. Adrian.");
+            var folder = Globals.ThisAddIn.Application.Session.PickFolder();
+            Settings.Default.InboxFolder = folder.Name;
+            Settings.Default.Save();
+
+            Globals.ThisAddIn.InitializeAddIn();
         }
 
         private void buttonFolderForAttachments_Click(object sender, RibbonControlEventArgs e)
         {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                MessageBox.Show("Sorry, this function  is not yet working. Adrian.");
+            var fbd = new FolderBrowserDialog();
+
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                Settings.Default.SaveFolder = fbd.SelectedPath;
+                Settings.Default.Save();
+            }
+
+            Globals.ThisAddIn.InitializeAddIn();
         }
     }
 }
