@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using Microsoft.Office.Tools.Ribbon;
 
+
 namespace OutlookAttachmentSaver
 {
     public partial class AE
@@ -19,7 +20,6 @@ namespace OutlookAttachmentSaver
             var folder = Globals.ThisAddIn.Application.Session.PickFolder();
             Settings.Default.InboxFolder = folder.Name;
             Settings.Default.Save();
-
             Globals.ThisAddIn.InitializeAddIn();
         }
 
@@ -34,6 +34,13 @@ namespace OutlookAttachmentSaver
             }
 
             Globals.ThisAddIn.InitializeAddIn();
+        }
+
+        private void checkBoxEnable_Click(object sender, RibbonControlEventArgs e)
+        {
+            Settings.Default.AutoExtractStatus = checkBoxEnable.Checked;
+            Settings.Default.Save();
+            //Globals.ThisAddIn.InitializeAddIn();
         }
     }
 }

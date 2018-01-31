@@ -5,6 +5,7 @@ using System.Text;
 using System.Xml.Linq;
 using Outlook = Microsoft.Office.Interop.Outlook;
 using Office = Microsoft.Office.Core;
+using System.Windows.Forms;
 
 namespace OutlookAttachmentSaver
 {
@@ -12,7 +13,6 @@ namespace OutlookAttachmentSaver
     {
         private string folderForAttachments = @"C:\TempDatenaufnahme"; // This should be modifyable by the "select folder for extraction" button in the ribbon
         private string folderToWatch; // Need to define the folder whis is to be monitored -> Should be inbox of Shared Mailbox. This should by modifyable by select mailfolder to watch.
-
         private Outlook.MAPIFolder inbox;
         private Outlook.Items items;
         private Outlook.NameSpace outlookNameSpace;
@@ -24,10 +24,10 @@ namespace OutlookAttachmentSaver
 
         private void InboxFolderItemAdded(object Item)
         {
-            if (Item is Outlook.MailItem)
+            if (Settings.Default.AutoExtractStatus == true && Item is Outlook.MailItem) //(Item is Outlook.MailItem) 
             {
                 // New mail item in inbox folder
-                // MessageBox.Show("you got mail");
+                //MessageBox.Show("you got mail");
                 var mailItem = (Outlook.MailItem)Item;
                 SaveAttachmentsToDisk(mailItem);
             }
@@ -51,6 +51,7 @@ namespace OutlookAttachmentSaver
 
             folderForAttachments = string.IsNullOrEmpty(Settings.Default.SaveFolder) ? folderForAttachments : Settings.Default.SaveFolder;
             folderToWatch = Settings.Default.InboxFolder;
+           // Globals.ThisAddIn.label.labelExtractionLocation.Text
 
             try
             {
