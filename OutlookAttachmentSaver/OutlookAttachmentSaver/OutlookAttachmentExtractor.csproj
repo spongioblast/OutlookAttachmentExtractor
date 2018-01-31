@@ -25,7 +25,7 @@
     <OutputType>Library</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
     <RootNamespace>OutlookAttachmentSaver</RootNamespace>
-    <AssemblyName>OutlookAttachmentSaver</AssemblyName>
+    <AssemblyName>OutlookAttachmentExtractor</AssemblyName>
     <LoadBehavior>3</LoadBehavior>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <DefineConstants>VSTO40</DefineConstants>
